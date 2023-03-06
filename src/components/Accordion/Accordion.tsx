@@ -1,17 +1,29 @@
 import React from 'react';
 
-const Accordion = () => {
+type AccordionPropsType = {
+    title: string
+}
+
+const Accordion: React.FC<AccordionPropsType> = ({
+                                                     title
+                                                 }) => {
     return (
         <div>
-            <AccordionTitle />
-            <AccordionBody />
+            <AccordionTitle title={title}/>
+            <AccordionBody/>
         </div>
     )
 }
 
-const AccordionTitle = () => {
+type AccordionTitlePropsType = {
+    title: string
+}
+
+const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
+                                                               title
+                                                           }) => {
     return (
-        <h3>Menu</h3>
+        <h3>{title}</h3>
     )
 }
 const AccordionBody = () => {
