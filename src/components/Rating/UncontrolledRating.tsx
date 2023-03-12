@@ -4,45 +4,37 @@ type UncontrolledRatingPropsType = {
     // value: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-const UncontrolledRating: React.FC<UncontrolledRatingPropsType> = () => {
-    const [value, setValue] = useState<number>(1)
+type StarPropsType = {
+    selected: boolean
+    // value: 1 | 2 | 3 | 4 | 5
+    setValue: () => void
+}
 
-    const onOneClick = () => {
-        setValue(1)
-    }
-    const  onTwoClick = () => {
-        setValue(2)
-    }
-    const onThreeClick = () => {
-        setValue(3)
-    }
-    const onFourClick = () => {
-        setValue(4)
-    }
-    const onFiveClick = () => {
-        setValue(5)
-    }
+const UncontrolledRating: React.FC<UncontrolledRatingPropsType> = () => {
+    const [value, setValue] = useState<number>(0)
+
+
     return (
         <div>
-            <Star selected={value > 0}/><button onClick={onOneClick}>1</button>
-            <Star selected={value > 1}/><button onClick={onTwoClick}>2</button>
-            <Star selected={value > 2}/><button onClick={onThreeClick}>3</button>
-            <Star selected={value > 3}/><button onClick={onFourClick}>4</button>
-            <Star selected={value > 4}/><button onClick={onFiveClick}>5</button>
+            <Star selected={value > 0} setValue={()=>setValue(1)}/>
+            <Star selected={value > 1} setValue={()=>setValue(2)}/>
+            <Star selected={value > 2} setValue={()=>setValue(3)}/>
+            <Star selected={value > 3} setValue={()=>setValue(4)}/>
+            <Star selected={value > 4} setValue={()=>setValue(5)}/>
         </div>
     )
 };
 
-type StarPropsType = {
-    selected: boolean
-}
 
 const Star: React.FC<StarPropsType> = ({
-                                           selected
+                                           selected,
+                                           setValue,
                                        }) => {
-    return selected ?
-        <span><b>star </b></span>
-        : <span>star </span>
+    return (
+        <span onClick={setValue}>
+            {selected ? <b>star </b> : 'star '}
+        </span>
+    )
 }
 
 export default UncontrolledRating;

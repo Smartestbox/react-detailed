@@ -3,31 +3,44 @@ import React from 'react';
 type AccordionPropsType = {
     title: string
     collapsed: boolean
+    changeCollapsed: (onState: boolean) => void
 }
+type AccordionTitlePropsType = {
+    title: string
+    collapsed: boolean
+    changeCollapsed: (onState: boolean) => void
+}
+
 
 const Accordion: React.FC<AccordionPropsType> = ({
                                                      title,
-                                                     collapsed
+                                                     collapsed,
+                                                     changeCollapsed,
                                                  }) => {
     return (
         <div>
-            <AccordionTitle title={title}/>
+            <AccordionTitle
+                title={title}
+                collapsed={collapsed}
+                changeCollapsed={changeCollapsed}/>
             {
-                !collapsed && <AccordionBody />
+                !collapsed && <AccordionBody/>
             }
         </div>
     )
 }
 
-type AccordionTitlePropsType = {
-    title: string
-}
 
 const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
-                                                               title
+                                                               title,
+                                                               collapsed,
+                                                               changeCollapsed
                                                            }) => {
+    const changeOnState = () => {
+        changeCollapsed(!collapsed)
+    }
     return (
-        <h3>{title}</h3>
+        <h3 onClick={changeOnState}>{title}</h3>
     )
 }
 

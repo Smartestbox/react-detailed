@@ -1,28 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
+import Rating, {RatingValueType} from "./components/Rating/Rating";
+import UncontrolledOnOff from "./components/OnOff/UncontrolledOnOff";
+import UncontrolledRating from "./components/Rating/UncontrolledRating";
 import Accordion from "./components/Accordion/Accordion";
-import Rating from "./components/Rating/Rating";
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
-import UncontrolledRating from "./components/Rating/UncontrolledRating";
+
+type PageTitlePropsType = {
+    title: string
+}
 
 function App() {
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const [on, setOn] = useState<boolean>(false)
+    const changeCollapsed = () => {
+        setCollapsed(!collapsed)
+    }
+    const changeOnState = (stateValue: boolean) => {
+        setOn(stateValue)
+    }
+
     return (
         <div className="App">
-            {/*<Accordion title={'Menu'} collapsed={true}/>*/}
-            {/*<Accordion title={'Users'} collapsed={false}/>*/}
-            <UncontrolledAccordion title={'Uncontrolled Accordion'} />
-            <UncontrolledAccordion title={'Uncontrolled Accordion'} />
-            <UncontrolledRating />
+            {/*<OnOff on={on} changeOnState={changeOnState}/>*/}
+            <UncontrolledOnOff onChange={setOn}/>
+            {on.toString()}
+            <UncontrolledAccordion title={'Some text'} />
+            {/*<Accordion*/}
+            {/*    title={'Menu'}*/}
+            {/*    collapsed={collapsed}*/}
+            {/*    changeCollapsed={changeCollapsed}*/}
+            {/*/>*/}
         </div>
     );
 }
 
-type PagePropsType = {
-    title: string
-}
-
-const PageTitle: React.FC<PagePropsType> = ({
+const PageTitle: React.FC<PageTitlePropsType> = ({
                                                 title
                                             }) => {
     return (

@@ -1,15 +1,29 @@
-import React from 'react';
-import styles from "./OnOff.module.css";
+import React, {useState} from 'react';
+import styles from './OnOff.module.css'
 
-type OnOffPropsType = {
-    on: boolean
-    changeOnState: (stateValue: boolean) => void
+type UncontrolledOnOffPropsType = {
+    onChange: (on: boolean) => void
 }
 
-const OnOff: React.FC<OnOffPropsType> = ({
-                                             on,
-                                             changeOnState,
-                                         }) => {
+
+const UncontrolledOnOff: React.FC<UncontrolledOnOffPropsType> = ({
+                                                                     onChange,
+                                                                 }) => {
+    const [on, setOn] = useState<boolean>(false)
+
+    const onOnClick = () => {
+        if (!on) {
+            setOn(true)
+            onChange(true)
+        }
+    }
+    const onOffClick = () => {
+        if (on) {
+            setOn(false)
+            onChange(false)
+        }
+    }
+
     const onStyle = {
         backgroundColor: on ? 'greenyellow' : 'white',
         cursor: 'pointer',
@@ -26,13 +40,6 @@ const OnOff: React.FC<OnOffPropsType> = ({
         backgroundColor: on ? 'greenyellow' : 'orangered',
     }
 
-    const onOnClick = () => {
-        changeOnState(true)
-    }
-    const onOffClick = () => {
-        changeOnState(false)
-    }
-
     return (
         <div className={styles.container}>
             <button style={onStyle} onClick={onOnClick}>On</button>
@@ -42,4 +49,4 @@ const OnOff: React.FC<OnOffPropsType> = ({
     );
 };
 
-export default OnOff;
+export default UncontrolledOnOff;

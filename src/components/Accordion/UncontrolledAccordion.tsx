@@ -6,33 +6,34 @@ type UncontrolledAccordionPropsType = {
 
 type AccordionTitlePropsType = {
     title: string
+    setCollapsed: () => void
 }
 
 const UncontrolledAccordion: React.FC<UncontrolledAccordionPropsType> = ({
                                                                              title,
                                                                          }) => {
-    const [collapsed, setCollapsed] = useState(false)
-    const onToggleClick = () => {
-        setCollapsed(!collapsed)
-    }
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+
     return (
         <div>
-            <AccordionTitle title={title}/>
-            <button onClick={onToggleClick}>{collapsed ? 'Show' : 'Hide'}</button>
+            <AccordionTitle
+                title={title}
+                setCollapsed={()=>setCollapsed(!collapsed)}
+            />
             {
-                !collapsed && <AccordionBody />
+                !collapsed && <AccordionBody/>
             }
         </div>
     );
 };
 
 
-
 const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
-                                                               title
+                                                               title,
+                                                               setCollapsed,
                                                            }) => {
     return (
-        <h3>{title}</h3>
+        <h3 onClick={setCollapsed}>{title}</h3>
     )
 }
 
