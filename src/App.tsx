@@ -6,6 +6,10 @@ import UncontrolledRating from "./components/Rating/UncontrolledRating";
 import Accordion from "./components/Accordion/Accordion";
 import OnOff from "./components/OnOff/OnOff";
 import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
+import UncontrolledInput from "./components/Input/UncontrolledInput";
+import Input from "./components/Input/Input";
+import Checkbox from "./components/Checkbox/Checkbox";
+import Select from "./components/Select/Select";
 
 type PageTitlePropsType = {
     title: string
@@ -21,18 +25,26 @@ function App() {
     const changeOnState = (stateValue: boolean) => {
         setOn(stateValue)
     }
+    const onLiClickHandler = (value: string) => {
+        console.log(`Item with title ${value} was clicked`)
+    }
 
     return (
         <div className="App">
             {/*<OnOff on={on} changeOnState={changeOnState}/>*/}
-            <UncontrolledOnOff onChange={setOn}/>
-            {on.toString()}
-            <UncontrolledAccordion title={'Some text'} />
-            {/*<Accordion*/}
-            {/*    title={'Menu'}*/}
-            {/*    collapsed={collapsed}*/}
-            {/*    changeCollapsed={changeCollapsed}*/}
-            {/*/>*/}
+            {/*<UncontrolledOnOff onChange={setOn}/>*/}
+            {/*<UncontrolledAccordion title={'Some text'} />*/}
+            {/*<UncontrolledInput />*/}
+            {/*<Input />*/}
+            {/*<Checkbox />*/}
+            {/*<Select />*/}
+            <Accordion
+                title={'Menu'}
+                collapsed={collapsed}
+                changeCollapsed={changeCollapsed}
+                items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}
+                onLiClickHandler={onLiClickHandler}
+            />
         </div>
     );
 }

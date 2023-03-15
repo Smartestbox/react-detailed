@@ -1,21 +1,33 @@
 import React from 'react';
 
+type ItemType = {
+    title: string
+    value: any
+}
+
 type AccordionPropsType = {
     title: string
     collapsed: boolean
     changeCollapsed: (onState: boolean) => void
+    items: ItemType[]
+    onLiClickHandler: (value: string) => void
 }
 type AccordionTitlePropsType = {
     title: string
     collapsed: boolean
     changeCollapsed: (onState: boolean) => void
 }
-
+type AccordionBodyPorpsType = {
+    items: ItemType[]
+    onLiClickHandler: (value: string) => void
+}
 
 const Accordion: React.FC<AccordionPropsType> = ({
                                                      title,
                                                      collapsed,
                                                      changeCollapsed,
+                                                     items,
+                                                     onLiClickHandler
                                                  }) => {
     return (
         <div>
@@ -24,7 +36,7 @@ const Accordion: React.FC<AccordionPropsType> = ({
                 collapsed={collapsed}
                 changeCollapsed={changeCollapsed}/>
             {
-                !collapsed && <AccordionBody/>
+                !collapsed && <AccordionBody items={items} onLiClickHandler={onLiClickHandler}/>
             }
         </div>
     )
@@ -44,12 +56,21 @@ const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
     )
 }
 
-const AccordionBody = () => {
+const AccordionBody: React.FC<AccordionBodyPorpsType> = ({
+                                                             items,
+                                                             onLiClickHandler
+                                                         }) => {
+
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {items.map((item, index) => {
+                const onLiClick = () => {
+                    onLiClickHandler(item.value)
+                }
+                return (
+                    <li onClick={onLiClick} key={index}>{item.title}</li>
+                )
+            })}
         </ul>
     )
 }
