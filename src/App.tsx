@@ -33,18 +33,18 @@ function App() {
         <div className="App">
             {/*<OnOff on={on} changeOnState={changeOnState}/>*/}
             {/*<UncontrolledOnOff onChange={setOn}/>*/}
-            {/*<UncontrolledAccordion title={'Some text'} />*/}
+            <UncontrolledAccordion title={'Some text'} />
             {/*<UncontrolledInput />*/}
             {/*<Input />*/}
             {/*<Checkbox />*/}
             {/*<Select />*/}
-            <Accordion
-                title={'Menu'}
-                collapsed={collapsed}
-                changeCollapsed={changeCollapsed}
-                items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}
-                onLiClickHandler={onLiClickHandler}
-            />
+            {/*<Accordion*/}
+            {/*    title={'Menu'}*/}
+            {/*    collapsed={collapsed}*/}
+            {/*    changeCollapsed={changeCollapsed}*/}
+            {/*    items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}*/}
+            {/*    onLiClickHandler={onLiClickHandler}*/}
+            {/*/>*/}
         </div>
     );
 }
