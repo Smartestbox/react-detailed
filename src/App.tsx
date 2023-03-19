@@ -10,6 +10,7 @@ import UncontrolledInput from "./components/Input/UncontrolledInput";
 import Input from "./components/Input/Input";
 import Checkbox from "./components/Checkbox/Checkbox";
 import Select from "./components/Select/Select";
+import ReactMemoExample from "./components/ReactMemoExample/ReactMemoExample";
 
 type PageTitlePropsType = {
     title: string
@@ -33,7 +34,7 @@ function App() {
         <div className="App">
             {/*<OnOff on={on} changeOnState={changeOnState}/>*/}
             {/*<UncontrolledOnOff onChange={setOn}/>*/}
-            <UncontrolledAccordion title={'Some text'} />
+            {/*<UncontrolledAccordion title={'Some text'} />*/}
             {/*<UncontrolledInput />*/}
             {/*<Input />*/}
             {/*<Checkbox />*/}
@@ -45,6 +46,7 @@ function App() {
             {/*    items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}*/}
             {/*    onLiClickHandler={onLiClickHandler}*/}
             {/*/>*/}
+            <ReactMemoExample />
         </div>
     );
 }
