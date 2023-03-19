@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import './App.css';
 import Rating, {RatingValueType} from "./components/Rating/Rating";
-import UncontrolledOnOff from "./components/OnOff/UncontrolledOnOff";
+import UncontrolledOnOff, {MemoizedUncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import UncontrolledRating from "./components/Rating/UncontrolledRating";
-import Accordion from "./components/Accordion/Accordion";
-import OnOff from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/Accordion/UncontrolledAccordion";
-import UncontrolledInput from "./components/Input/UncontrolledInput";
-import Input from "./components/Input/Input";
-import Checkbox from "./components/Checkbox/Checkbox";
+import Accordion, {MemoizedAccordion} from "./components/Accordion/Accordion";
+import OnOff, {MemoizedOnOff} from "./components/OnOff/OnOff";
+import UncontrolledAccordion, {MemoizedUncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
+import UncontrolledInput, {MemoizedUncontrolledInput} from "./components/Input/UncontrolledInput";
+import Input, {MemoizedInput} from "./components/Input/Input";
+import Checkbox, {MemoizedCheckbox} from "./components/Checkbox/Checkbox";
 import Select from "./components/Select/Select";
 import ReactMemoExample from "./components/ReactMemoExample/ReactMemoExample";
 
@@ -32,21 +32,21 @@ function App() {
 
     return (
         <div className="App">
-            {/*<OnOff on={on} changeOnState={changeOnState}/>*/}
-            {/*<UncontrolledOnOff onChange={setOn}/>*/}
-            {/*<UncontrolledAccordion title={'Some text'} />*/}
-            {/*<UncontrolledInput />*/}
-            {/*<Input />*/}
-            {/*<Checkbox />*/}
+            <MemoizedOnOff on={on} changeOnState={changeOnState}/>
+            <MemoizedUncontrolledOnOff onChange={setOn}/>
+            <MemoizedUncontrolledAccordion title={'Some text'} />
+            <MemoizedUncontrolledInput />
+            <MemoizedInput />
+            <MemoizedCheckbox />
             {/*<Select />*/}
-            {/*<Accordion*/}
-            {/*    title={'Menu'}*/}
-            {/*    collapsed={collapsed}*/}
-            {/*    changeCollapsed={changeCollapsed}*/}
-            {/*    items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}*/}
-            {/*    onLiClickHandler={onLiClickHandler}*/}
-            {/*/>*/}
-            <ReactMemoExample />
+            <MemoizedAccordion
+                title={'Menu'}
+                collapsed={collapsed}
+                changeCollapsed={changeCollapsed}
+                items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}
+                onLiClickHandler={onLiClickHandler}
+            />
+            {/*<ReactMemoExample />*/}
         </div>
     );
 }
@@ -58,5 +58,6 @@ const PageTitle: React.FC<PageTitlePropsType> = ({
         <h1>{title}</h1>
     )
 }
+const MemoizedPageTitle = React.memo(PageTitle)
 
 export default App;

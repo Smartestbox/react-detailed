@@ -49,4 +49,6 @@ const UncontrolledOnOff: React.FC<UncontrolledOnOffPropsType> = ({
     );
 };
 
+export const MemoizedUncontrolledOnOff = React.memo(UncontrolledOnOff)
+
 export default UncontrolledOnOff;

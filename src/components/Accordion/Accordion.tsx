@@ -31,17 +31,18 @@ const Accordion: React.FC<AccordionPropsType> = ({
                                                  }) => {
     return (
         <div>
-            <AccordionTitle
+            <MemoizedAccordionTitle
                 title={title}
                 collapsed={collapsed}
                 changeCollapsed={changeCollapsed}/>
             {
-                !collapsed && <AccordionBody items={items} onLiClickHandler={onLiClickHandler}/>
+                !collapsed && <MemoizedAccordionBody items={items} onLiClickHandler={onLiClickHandler}/>
             }
         </div>
     )
 }
 
+export const MemoizedAccordion = React.memo(Accordion)
 
 const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
                                                                title,
@@ -55,6 +56,7 @@ const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
         <h3 onClick={changeOnState}>{title}</h3>
     )
 }
+const MemoizedAccordionTitle = React.memo(AccordionTitle)
 
 const AccordionBody: React.FC<AccordionBodyPorpsType> = ({
                                                              items,
@@ -74,6 +76,7 @@ const AccordionBody: React.FC<AccordionBodyPorpsType> = ({
         </ul>
     )
 }
+const MemoizedAccordionBody = React.memo(AccordionBody)
 
 
 export default Accordion;

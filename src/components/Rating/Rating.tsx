@@ -19,11 +19,11 @@ const Rating: React.FC<RatingPropsType> = ({
                                            }) => {
     return (
         <div>
-            <Star selected={value > 0} value={1} onClick={onClick}/>
-            <Star selected={value > 1} value={2} onClick={onClick}/>
-            <Star selected={value > 2} value={3} onClick={onClick}/>
-            <Star selected={value > 3} value={4} onClick={onClick}/>
-            <Star selected={value > 4} value={5} onClick={onClick}/>
+            <MemoizedStar selected={value > 0} value={1} onClick={onClick}/>
+            <MemoizedStar selected={value > 1} value={2} onClick={onClick}/>
+            <MemoizedStar selected={value > 2} value={3} onClick={onClick}/>
+            <MemoizedStar selected={value > 3} value={4} onClick={onClick}/>
+            <MemoizedStar selected={value > 4} value={5} onClick={onClick}/>
         </div>
     )
 };
@@ -40,5 +40,7 @@ const Star: React.FC<StarPropsType> = ({
         </span>
     )
 }
+
+const MemoizedStar = React.memo(Star)
 
 export default Rating;

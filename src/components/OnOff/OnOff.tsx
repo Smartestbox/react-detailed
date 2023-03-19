@@ -42,4 +42,6 @@ const OnOff: React.FC<OnOffPropsType> = ({
     );
 };
 
+export const MemoizedOnOff = React.memo(OnOff)
+
 export default OnOff;

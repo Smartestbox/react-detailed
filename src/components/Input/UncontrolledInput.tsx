@@ -13,4 +13,6 @@ const UncontrolledInput = () => {
     );
 };
 
+export const MemoizedUncontrolledInput = React.memo(UncontrolledInput)
+
 export default UncontrolledInput;

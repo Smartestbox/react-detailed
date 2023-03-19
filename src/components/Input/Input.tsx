@@ -11,5 +11,6 @@ const Input = () => {
         </div>
     );
 };
+export const MemoizedInput = React.memo(Input)
 
 export default Input;

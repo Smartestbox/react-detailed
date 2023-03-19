@@ -12,4 +12,6 @@ const Checkbox = () => {
     )
 };
 
+export const MemoizedCheckbox = React.memo(Checkbox)
+
 export default Checkbox;

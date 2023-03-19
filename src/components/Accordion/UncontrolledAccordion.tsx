@@ -19,17 +19,19 @@ const UncontrolledAccordion: React.FC<UncontrolledAccordionPropsType> = ({
 
     return (
         <div>
-            <AccordionTitle
+            <MemoizedAccordionTitle
                 title={title}
                 // setCollapsed={()=>setCollapsed(!collapsed)}
                 onClick={()=>dispatch({type: TOGGLE_COLLAPSED})}
             />
             {
-                !state.collapsed && <AccordionBody/>
+                !state.collapsed && <MemoizedAccordionBody/>
             }
         </div>
-    );
-};
+    )
+}
+
+export const MemoizedUncontrolledAccordion = React.memo(UncontrolledAccordion)
 
 
 const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
@@ -40,6 +42,7 @@ const AccordionTitle: React.FC<AccordionTitlePropsType> = ({
         <h3 onClick={onClick}>{title}</h3>
     )
 }
+const MemoizedAccordionTitle = React.memo(AccordionTitle)
 
 const AccordionBody = () => {
     return (
@@ -50,5 +53,6 @@ const AccordionBody = () => {
         </ul>
     )
 }
+const MemoizedAccordionBody = React.memo(AccordionBody)
 
 export default UncontrolledAccordion;
