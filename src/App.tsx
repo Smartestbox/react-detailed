@@ -10,7 +10,7 @@ import UncontrolledInput, {MemoizedUncontrolledInput} from "./components/Input/U
 import Input, {MemoizedInput} from "./components/Input/Input";
 import Checkbox, {MemoizedCheckbox} from "./components/Checkbox/Checkbox";
 import Select from "./components/Select/Select";
-import ReactMemoExample from "./components/ReactMemoExample/ReactMemoExample";
+import {HelpsForReactMemo} from "./components/ReactMemoExample/ReactMemoExample";
 
 type PageTitlePropsType = {
     title: string
@@ -32,28 +32,29 @@ function App() {
 
     return (
         <div className="App">
-            <MemoizedOnOff on={on} changeOnState={changeOnState}/>
-            <MemoizedUncontrolledOnOff onChange={setOn}/>
-            <MemoizedUncontrolledAccordion title={'Some text'} />
-            <MemoizedUncontrolledInput />
-            <MemoizedInput />
-            <MemoizedCheckbox />
-            {/*<Select />*/}
-            <MemoizedAccordion
-                title={'Menu'}
-                collapsed={collapsed}
-                changeCollapsed={changeCollapsed}
-                items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}
-                onLiClickHandler={onLiClickHandler}
-            />
+            {/*<MemoizedOnOff on={on} changeOnState={changeOnState}/>*/}
+            {/*<MemoizedUncontrolledOnOff onChange={setOn}/>*/}
+            {/*<MemoizedUncontrolledAccordion title={'Some text'} />*/}
+            {/*<MemoizedUncontrolledInput />*/}
+            {/*<MemoizedInput />*/}
+            {/*<MemoizedCheckbox />*/}
+            {/*/!*<Select />*!/*/}
+            {/*<MemoizedAccordion*/}
+            {/*    title={'Menu'}*/}
+            {/*    collapsed={collapsed}*/}
+            {/*    changeCollapsed={changeCollapsed}*/}
+            {/*    items={[{title: 'Dimych', value: '1'}, {title: 'Valera', value: '2'}, {title: 'Viktor', value: '3'}]}*/}
+            {/*    onLiClickHandler={onLiClickHandler}*/}
+            {/*/>*/}
             {/*<ReactMemoExample />*/}
+            <HelpsForReactMemo/>
         </div>
     );
 }
 
 const PageTitle: React.FC<PageTitlePropsType> = ({
-                                                title
-                                            }) => {
+                                                     title
+                                                 }) => {
     return (
         <h1>{title}</h1>
     )
