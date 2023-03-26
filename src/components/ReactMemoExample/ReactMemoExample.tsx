@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 // export const ReactMemoExample = () => {
 //     const [counter, setCounter] = useState<number>(0)
@@ -68,8 +68,8 @@ type UsersSecret = {
     users: string[]
 }
 export const UsersSecret: React.FC<UsersSecret> = ({
-                                users,
-                            }) => {
+                                                       users,
+                                                   }) => {
     console.log('USERS SECRET')
     return (
         <>
@@ -95,3 +95,50 @@ export const HelpsForReactMemo = () => {
         </>
     )
 }
+
+
+export const UseCallbackExample = () => {
+    console.log('UseCallbackExample')
+    const [counter, setCounter] = useState<number>(0)
+    const [books, setBooks] = useState<string[]>(['React', 'JS', 'CSS', 'HTML'])
+
+
+    const memoizedAddBook2 = useMemo(() => {
+        return () => {
+            const newBooks = [...books, 'Angular ' + new Date().getTime()]
+            setBooks(newBooks)
+        }
+    }, [books])
+
+    const memoizedAddBook = useCallback(() => {
+        const newBooks = [...books, 'Angular ' + new Date().getTime()]
+        setBooks(newBooks)
+    }, [books])
+
+
+    return (
+        <>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            {counter}
+            <Book addBook={memoizedAddBook}/>
+        </>
+    )
+}
+
+
+type BookSecretPropsType = {
+    addBook: () => void
+}
+
+const BookSecret: React.FC<BookSecretPropsType> = ({
+                                                       addBook,
+                                                   }) => {
+    console.log('BookSecret')
+    return (
+        <div>
+            <button onClick={() => addBook()}>Add Book</button>
+        </div>
+    )
+}
+
+const Book = React.memo(BookSecret)

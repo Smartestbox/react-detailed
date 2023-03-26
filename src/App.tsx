@@ -10,7 +10,7 @@ import UncontrolledInput, {MemoizedUncontrolledInput} from "./components/Input/U
 import Input, {MemoizedInput} from "./components/Input/Input";
 import Checkbox, {MemoizedCheckbox} from "./components/Checkbox/Checkbox";
 import Select from "./components/Select/Select";
-import {HelpsForReactMemo} from "./components/ReactMemoExample/ReactMemoExample";
+import {HelpsForReactMemo, UseCallbackExample} from "./components/ReactMemoExample/ReactMemoExample";
 
 type PageTitlePropsType = {
     title: string
@@ -47,7 +47,8 @@ function App() {
             {/*    onLiClickHandler={onLiClickHandler}*/}
             {/*/>*/}
             {/*<ReactMemoExample />*/}
-            <HelpsForReactMemo/>
+            {/*<HelpsForReactMemo/>*/}
+            <UseCallbackExample />
         </div>
     );
 }
