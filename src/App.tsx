@@ -11,6 +11,8 @@ import Input, {MemoizedInput} from "./components/Input/Input";
 import Checkbox, {MemoizedCheckbox} from "./components/Checkbox/Checkbox";
 import Select from "./components/Select/Select";
 import {HelpsForReactMemo, UseCallbackExample} from "./components/ReactMemoExample/ReactMemoExample";
+import UseState from "./components/UseState/UseState";
+import UseEffect from "./components/UseEffect/UseEffect";
 
 type PageTitlePropsType = {
     title: string
@@ -48,7 +50,8 @@ function App() {
             {/*/>*/}
             {/*<ReactMemoExample />*/}
             {/*<HelpsForReactMemo/>*/}
-            <UseCallbackExample />
+            {/*<UseCallbackExample />*/}
+            <UseEffect />
         </div>
     );
 }
