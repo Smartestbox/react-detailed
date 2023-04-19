@@ -13,6 +13,7 @@ import Select from "./components/Select/Select";
 import {HelpsForReactMemo, UseCallbackExample} from "./components/ReactMemoExample/ReactMemoExample";
 import UseState from "./components/UseState/UseState";
 import UseEffect from "./components/UseEffect/UseEffect";
+import Clock from "./components/Clock/Clock";
 
 type PageTitlePropsType = {
     title: string
@@ -51,7 +52,8 @@ function App() {
             {/*<ReactMemoExample />*/}
             {/*<HelpsForReactMemo/>*/}
             {/*<UseCallbackExample />*/}
-            <UseEffect />
+            {/*<UseEffect />*/}
+            <Clock />
         </div>
     );
 }
