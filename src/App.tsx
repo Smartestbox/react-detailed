@@ -13,7 +13,8 @@ import Select from "./components/Select/Select";
 import {HelpsForReactMemo, UseCallbackExample} from "./components/ReactMemoExample/ReactMemoExample";
 import UseState from "./components/UseState/UseState";
 import UseEffect from "./components/UseEffect/UseEffect";
-import Clock from "./components/Clock/Clock";
+import {Clock, ResetEffectExample} from "./components/Clock/Clock";
+import {KeysTrackerExample} from "./components/KeysTrackerExample/KeysTrackerExample";
 
 type PageTitlePropsType = {
     title: string
@@ -53,7 +54,9 @@ function App() {
             {/*<HelpsForReactMemo/>*/}
             {/*<UseCallbackExample />*/}
             {/*<UseEffect />*/}
-            <Clock />
+            {/*<Clock />*/}
+            {/*<ResetEffectExample />*/}
+            <KeysTrackerExample />
         </div>
     );
 }

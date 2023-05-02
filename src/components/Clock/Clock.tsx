@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 const getTwoDigitTime = (time: number) => time < 10 ? '0' + time : time
 
-const Clock = () => {
+export const Clock = () => {
 
     const [date, setDate] = useState(new Date())
     useEffect(() => {
@@ -27,4 +27,30 @@ const Clock = () => {
     );
 };
 
-export default Clock;
+export const ResetEffectExample = () => {
+
+    const [count, setCount] = useState(0)
+
+    console.log('Component rendered with ', count)
+
+    useEffect(() => {
+        console.log('Effect occurred ', count)
+
+        return () => {
+            console.log('Reset effect ', count)
+        }
+    }, [count])
+
+    const onIncrease = () => {
+        setCount(count + 1)
+    }
+
+    return (
+        <div>
+            <div>{count}</div>
+            <button onClick={onIncrease}>increase</button>
+        </div>
+    );
+};
+
+
